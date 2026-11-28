@@ -13,7 +13,6 @@ namespace Task1
             Console.InputEncoding = System.Text.Encoding.UTF8;
 
             string language = Localization.SelectLanguage();
-
             var repository = new ScoreRepository();
 
             Console.WriteLine("Введите имя первого игрока:");
@@ -33,8 +32,10 @@ namespace Task1
 
             Console.WriteLine($"\nИгра началась! {player1.Name} VS {player2.Name}");
 
+            session.Start();
+
             repository.Save();
-            Console.WriteLine("\nДанные сохранены в scores.json. Нажмите любую клавишу...");
+            Console.WriteLine("\nИгра окончена. Статистика сохранена. Нажмите любую клавишу...");
             Console.ReadKey();
         }
 
